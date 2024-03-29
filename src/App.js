@@ -7,7 +7,6 @@ import CommentList from "./components/CommentList";
 import CommentForm from "./components/CommentForm";
 
 const socket = io(process.env.REACT_APP_BASEURL); // Connect to WebSocket server
-
 const App = () => {
   const [comments, setComments] = useState([]);
   const [videoTimestamp, setVideoTimestamp] = useState(0);
@@ -38,7 +37,7 @@ const App = () => {
   const fetchComments = async (timestamp) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/comments?timestamp=${Math.floor(timestamp)}`
+        `${process.env.REACT_APP_BASEURL}/comments?timestamp=${Math.floor(timestamp)}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch comments");
