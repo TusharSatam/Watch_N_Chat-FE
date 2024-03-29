@@ -6,7 +6,7 @@ import VideoPlayer from "./components/VideoPlayer";
 import CommentList from "./components/CommentList";
 import CommentForm from "./components/CommentForm";
 
-const socket = io("http://localhost:5000"); // Connect to WebSocket server
+const socket = io(process.env.REACT_APP_BASEURL); // Connect to WebSocket server
 
 const App = () => {
   const [comments, setComments] = useState([]);
